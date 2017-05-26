@@ -4,6 +4,9 @@
     
     .DESCRIPTION
     Deploys an Logical Switch, Edge Gateway, Logical Router and stiches it together using OSPF. Also peers to the vPod Router.
+    Ensure you have both PowerCLI and PowerNSX installed before running this.
+    PowerCLI: Install-Module -Name VMware.PowerCLI
+    PowerNSX: $Branch="master";$url="https://raw.githubusercontent.com/vmware/powernsx/$Branch/PowerNSXInstaller.ps1"; try { $wc = new-object Net.WebClient;$scr = try { $wc.DownloadString($url)} catch { if ( $_.exception.innerexception -match "(407)") { $wc.proxy.credentials = Get-Credential -Message "Proxy Authentication Required"; $wc.DownloadString($url) } else { throw $_ }}; $scr | iex } catch { throw $_ }
 
 #>
 
